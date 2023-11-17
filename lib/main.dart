@@ -1,6 +1,7 @@
 import 'package:firebase/controller/internet_connectivity_provider.dart';
 import 'package:firebase/controller/techname_provider.dart';
 import 'package:firebase/firebase_options.dart';
+import 'package:firebase/splash.dart';
 import 'package:firebase/views/add.dart';
 import 'package:firebase/views/edit.dart';
 import 'package:firebase/views/home.dart';
@@ -36,11 +37,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         routes: {
+          '/s': (context) => SplashScreen(),
           '/': (context) => Homepage(),
           '/add': (context) => AddUser(),
           '/update': (context) => Update(),
         },
-        initialRoute: '/',
+        initialRoute: '/s',
       ),
     );
   }

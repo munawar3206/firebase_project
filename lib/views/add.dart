@@ -74,7 +74,8 @@ class AddUser extends StatelessWidget {
                 items: domains
                     .map((e) => DropdownMenuItem(
                           value: e,
-                          child: Text(e,style: TextStyle(fontWeight: FontWeight.bold)),
+                          child: Text(e,
+                              style: TextStyle(fontWeight: FontWeight.bold)),
                         ))
                     .toList(),
                 onChanged: (val) {
