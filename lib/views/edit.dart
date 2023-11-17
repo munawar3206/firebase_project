@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:firebase/constants/domain.dart';
 import 'package:firebase/controller/techname_provider.dart';
 import 'package:flutter/material.dart';
@@ -73,20 +71,28 @@ class Update extends StatelessWidget {
                   label: Text("Phone Number")),
               maxLength: 10,
             ),
-            DropdownButtonFormField(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButtonFormField(
+                dropdownColor: const Color.fromARGB(255, 86, 33, 243),
                 decoration: const InputDecoration(
-                    label: Text("Select Domain"),
-                    labelStyle:
-                        TextStyle(color: Color.fromARGB(255, 70, 54, 244))),
+                    label: Text("Select Domain 🖱️"),
+                    labelStyle: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
                 items: domains
                     .map((e) => DropdownMenuItem(
                           value: e,
-                          child: Text(e),
+                          child: Text(
+                            e,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                         ))
                     .toList(),
                 onChanged: (val) {
                   techprovider.selectedGroup = val;
-                }),
+                },
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
             const SizedBox(
               height: 10,
             ),

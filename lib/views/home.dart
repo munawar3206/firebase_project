@@ -1,12 +1,25 @@
-
+import 'package:firebase/controller/internet_connectivity_provider.dart';
 import 'package:firebase/controller/techname_provider.dart';
 import 'package:firebase/model/techname_model.dart';
+import 'package:firebase/services/internet_connection.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  @override
+  void initState() {
+    Provider.of<InternetConnectivityProvider>(context, listen: false)
+        .getInternetConnectivity(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +33,8 @@ class Homepage extends StatelessWidget {
         builder: (context, provider, child) {
           if (provider.technames.isEmpty) {
             provider.fetchtechname();
+            // Provider.of<InternetConnectivityProvider>(context);
+
             return Center(
               child: Lottie.asset("asset/Animation - 1700211173728.json",
                   height: 250, width: 250),

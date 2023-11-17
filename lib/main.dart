@@ -1,3 +1,4 @@
+import 'package:firebase/controller/internet_connectivity_provider.dart';
 import 'package:firebase/controller/techname_provider.dart';
 import 'package:firebase/firebase_options.dart';
 import 'package:firebase/views/add.dart';
@@ -26,6 +27,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => technameProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => InternetConnectivityProvider(),
         )
       ],
       child: MaterialApp(

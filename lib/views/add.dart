@@ -7,7 +7,6 @@ class AddUser extends StatelessWidget {
   AddUser({super.key});
   final formkey = GlobalKey<FormState>();
 
-
   @override
   Widget build(BuildContext context) {
     final techprovider = Provider.of<technameProvider>(context);
@@ -25,8 +24,11 @@ class AddUser extends StatelessWidget {
           child: Column(children: [
             TextFormField(
               controller: techprovider.studname,
-            
               decoration: const InputDecoration(
+                icon: Icon(
+                  Icons.person,
+                  color: Colors.black,
+                ),
                 border: OutlineInputBorder(),
                 label: Text("Devops Name"),
               ),
@@ -37,31 +39,50 @@ class AddUser extends StatelessWidget {
             TextFormField(
               controller: techprovider.studbatch,
               decoration: const InputDecoration(
-                  border: OutlineInputBorder(), label: Text("Batch")),
+                  icon: Icon(
+                    Icons.class_,
+                    color: Colors.black,
+                  ),
+                  border: OutlineInputBorder(),
+                  label: Text("Batch")),
             ),
             const SizedBox(
               height: 10,
             ),
             TextFormField(
               controller: techprovider.studphone,
+              keyboardType: TextInputType.number,
               decoration: const InputDecoration(
-                  border: OutlineInputBorder(), label: Text("Phone Number")),
+                  icon: Icon(
+                    Icons.phone,
+                    color: Colors.black,
+                  ),
+                  border: OutlineInputBorder(),
+                  label: Text("Phone Number")),
               maxLength: 10,
             ),
-            DropdownButtonFormField(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButtonFormField(
+                dropdownColor: const Color.fromARGB(255, 86, 33, 243),
                 decoration: const InputDecoration(
-                    label: Text("Select Domain"),
-                    labelStyle:
-                        TextStyle(color: Color.fromARGB(255, 70, 54, 244))),
+                  label: Text(
+                    "Select Domain 🖱️",
+                    style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                ),
                 items: domains
                     .map((e) => DropdownMenuItem(
                           value: e,
-                          child: Text(e),
+                          child: Text(e,style: TextStyle(fontWeight: FontWeight.bold)),
                         ))
                     .toList(),
                 onChanged: (val) {
                   techprovider.selectedGroup = val;
-                }),
+                },
+                borderRadius: BorderRadius.circular(25),
+              ),
+            ),
             const SizedBox(
               height: 10,
             ),
