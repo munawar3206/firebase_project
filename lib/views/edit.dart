@@ -1,5 +1,6 @@
 import 'package:firebase/constants/domain.dart';
 import 'package:firebase/controller/techname_provider.dart';
+import 'package:firebase/helper/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,9 +19,9 @@ class Update extends StatelessWidget {
     techprovider.selectedGroup = args["domain"];
     final docId = args['id'];
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor:white,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 70, 54, 244),
+        backgroundColor:blue,
         title: const Text("Edit 📝"),
         centerTitle: true,
         elevation: 10,
@@ -35,7 +36,7 @@ class Update extends StatelessWidget {
               decoration: const InputDecoration(
                 icon: Icon(
                   Icons.person,
-                  color: Colors.black,
+                  color: black,
                 ),
                 border: OutlineInputBorder(),
                 label: Text(
@@ -51,7 +52,7 @@ class Update extends StatelessWidget {
               decoration: const InputDecoration(
                   icon: Icon(
                     Icons.class_,
-                    color: Colors.black,
+                    color:black,
                   ),
                   border: OutlineInputBorder(),
                   label: Text("Batch")),
@@ -65,7 +66,7 @@ class Update extends StatelessWidget {
               decoration: const InputDecoration(
                   icon: Icon(
                     Icons.phone,
-                    color: Colors.black,
+                    color: black,
                   ),
                   border: OutlineInputBorder(),
                   label: Text("Phone Number")),
@@ -74,10 +75,10 @@ class Update extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: DropdownButtonFormField(
-                dropdownColor: const Color.fromARGB(255, 86, 33, 243),
+                dropdownColor:blue,
                 decoration: const InputDecoration(
                     label: Text("Select Domain 🖱️"),
-                    labelStyle: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
+                    labelStyle: TextStyle(color:black)),
                 items: domains
                     .map((e) => DropdownMenuItem(
                           value: e,
@@ -107,7 +108,7 @@ class Update extends StatelessWidget {
                   minimumSize:
                       MaterialStatePropertyAll(Size(double.infinity, 50)),
                   backgroundColor: MaterialStatePropertyAll(
-                      Color.fromARGB(255, 70, 54, 244))),
+                     blue)),
               child: const Text(
                 "Update ☑️",
                 style: TextStyle(fontSize: 20),

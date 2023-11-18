@@ -1,5 +1,6 @@
 import 'package:firebase/constants/domain.dart';
 import 'package:firebase/controller/techname_provider.dart';
+import 'package:firebase/helper/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +13,7 @@ class AddUser extends StatelessWidget {
     final techprovider = Provider.of<technameProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 70, 54, 244),
+        backgroundColor:blue,
         title: const Text("Add Devops 🖥️"),
         elevation: 10,
         centerTitle: true,
@@ -27,7 +28,7 @@ class AddUser extends StatelessWidget {
               decoration: const InputDecoration(
                 icon: Icon(
                   Icons.person,
-                  color: Colors.black,
+                  color:black,
                 ),
                 border: OutlineInputBorder(),
                 label: Text("Devops Name"),
@@ -41,7 +42,7 @@ class AddUser extends StatelessWidget {
               decoration: const InputDecoration(
                   icon: Icon(
                     Icons.class_,
-                    color: Colors.black,
+                    color: black,
                   ),
                   border: OutlineInputBorder(),
                   label: Text("Batch")),
@@ -55,7 +56,7 @@ class AddUser extends StatelessWidget {
               decoration: const InputDecoration(
                   icon: Icon(
                     Icons.phone,
-                    color: Colors.black,
+                    color:black,
                   ),
                   border: OutlineInputBorder(),
                   label: Text("Phone Number")),
@@ -64,11 +65,11 @@ class AddUser extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: DropdownButtonFormField(
-                dropdownColor: const Color.fromARGB(255, 86, 33, 243),
+                dropdownColor:blue,
                 decoration: const InputDecoration(
                   label: Text(
                     "Select Domain 🖱️",
-                    style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                    style: TextStyle(color: black),
                   ),
                 ),
                 items: domains
@@ -102,7 +103,7 @@ class AddUser extends StatelessWidget {
                   minimumSize:
                       MaterialStatePropertyAll(Size(double.infinity, 50)),
                   backgroundColor: MaterialStatePropertyAll(
-                      Color.fromARGB(255, 70, 54, 244))),
+                     blue)),
               child: const Text(
                 "Submit 🖱️",
                 style: TextStyle(fontSize: 20),

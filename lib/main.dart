@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         routes: {
-          '/s': (context) => SplashScreen(),
+          '/s': (context) => const SplashScreen(),
           '/': (context) => Homepage(),
           '/add': (context) => AddUser(),
           '/update': (context) => Update(),

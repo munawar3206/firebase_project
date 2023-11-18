@@ -1,13 +1,13 @@
 import 'package:firebase/controller/internet_connectivity_provider.dart';
 import 'package:firebase/controller/techname_provider.dart';
+import 'package:firebase/helper/colors.dart';
 import 'package:firebase/model/techname_model.dart';
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class Homepage extends StatefulWidget {
-  Homepage({super.key});
+  const Homepage({super.key});
 
   @override
   State<Homepage> createState() => _HomepageState();
@@ -24,9 +24,9 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: black,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 70, 54, 244),
+        backgroundColor: blue,
         title: const Text("Devops 👨‍💻"),
         centerTitle: true,
       ),
@@ -49,13 +49,12 @@ class _HomepageState extends State<Homepage> {
                   height: 80,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                          color: const Color.fromARGB(255, 47, 0, 255)),
+                      border: Border.all(color: blue),
                       boxShadow: const [
                         BoxShadow(
-                          color: Color.fromARGB(255, 255, 255, 255),
+                          color: white,
                           spreadRadius: 3.5,
-                          // blurRadius: 2.5
+                          //  blurRadius: 2.5
                         ),
                       ]),
                   child: Row(
@@ -64,14 +63,13 @@ class _HomepageState extends State<Homepage> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CircleAvatar(
-                          backgroundColor:
-                              const Color.fromARGB(255, 47, 0, 255),
+                          backgroundColor: blue,
                           radius: 30,
                           child: Text(
                             namesSnap.domain.toString(),
                             style: const TextStyle(
                                 fontSize: 15,
-                                color: Color.fromARGB(255, 0, 0, 0),
+                                color: black,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -79,16 +77,32 @@ class _HomepageState extends State<Homepage> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            namesSnap.name.toString(),
-                            style: const TextStyle(fontWeight: FontWeight.w900),
+                          Row(
+                            children: [
+                              const Text("👨‍💻  "),
+                              Text(
+                                namesSnap.name.toString(),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ],
                           ),
-                          Text(namesSnap.batch.toString(),
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.w700)),
-                          Text(namesSnap.phone.toString(),
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.w600)),
+                          Row(
+                            children: [
+                              const Text("🏛️  "),
+                              Text(namesSnap.batch.toString(),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w700)),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Text("📞  "),
+                              Text(namesSnap.phone.toString(),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w600)),
+                            ],
+                          ),
                         ],
                       ),
                       Row(
@@ -122,7 +136,7 @@ class _HomepageState extends State<Homepage> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-          backgroundColor: const Color.fromARGB(255, 70, 54, 244),
+          backgroundColor: blue,
           onPressed: () {
             Navigator.pushNamed(context, "/add");
           },
