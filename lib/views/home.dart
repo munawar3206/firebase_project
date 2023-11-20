@@ -6,27 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
-class Homepage extends StatefulWidget {
+class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
-}
-
-class _HomepageState extends State<Homepage> {
-  @override
-  void initState() {
-    super.initState();
+  Widget build(BuildContext context) {
     Provider.of<InternetConnectivityProvider>(context, listen: false)
         .getInternetConnectivity(context);
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: black,
       appBar: AppBar(
-        backgroundColor: blue,
+        backgroundColor: Color.fromARGB(255, 3, 77, 117),
         title: const Text("Devops 👨‍💻"),
         centerTitle: true,
       ),
@@ -49,11 +39,13 @@ class _HomepageState extends State<Homepage> {
                   height: 80,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: blue),
+                      border: Border.all(
+                        color: Color.fromARGB(255, 3, 77, 117),
+                      ),
                       boxShadow: const [
                         BoxShadow(
                           color: white,
-                          spreadRadius: 3.5,
+                          spreadRadius: 4,
                           //  blurRadius: 2.5
                         ),
                       ]),
@@ -69,7 +61,7 @@ class _HomepageState extends State<Homepage> {
                             namesSnap.domain.toString(),
                             style: const TextStyle(
                                 fontSize: 15,
-                                color: black,
+                                color: white,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -120,11 +112,49 @@ class _HomepageState extends State<Homepage> {
                               },
                               icon: const Icon(Icons.edit)),
                           IconButton(
-                              onPressed: () {
-                                provider
-                                    .deletetechname(namesSnap.id.toString());
-                              },
-                              icon: const Icon(Icons.delete))
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    backgroundColor: blue,
+                                    title: const Text('Confirm Deletion'),
+                                    content: const Text(
+                                        'Are you sure you want to delete'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text(
+                                          'Cancel',
+                                          style: TextStyle(color: white),
+                                        ),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          provider.deletetechname(
+                                              namesSnap.id.toString());
+                                          Navigator.pop(context);
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
+                                            backgroundColor: Colors.red,
+                                            content: Text("Deleted!!"),
+                                            duration: Duration(seconds: 3),
+                                          ));
+                                        },
+                                        child: const Text(
+                                          'Delete',
+                                          style: TextStyle(color: Colors.red),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            icon: const Icon(Icons.delete),
+                          ),
                         ],
                       )
                     ],
@@ -136,7 +166,7 @@ class _HomepageState extends State<Homepage> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-          backgroundColor: blue,
+          backgroundColor: Color.fromARGB(255, 3, 77, 117),
           onPressed: () {
             Navigator.pushNamed(context, "/add");
           },

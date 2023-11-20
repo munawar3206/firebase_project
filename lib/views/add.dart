@@ -13,8 +13,8 @@ class AddUser extends StatelessWidget {
     final techprovider = Provider.of<technameProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:blue,
-        title: const Text("Add Devops 🖥️"),
+        backgroundColor: blue,
+        title: const Text("Add Devops"),
         elevation: 10,
         centerTitle: true,
       ),
@@ -28,7 +28,7 @@ class AddUser extends StatelessWidget {
               decoration: const InputDecoration(
                 icon: Icon(
                   Icons.person,
-                  color:black,
+                  color: black,
                 ),
                 border: OutlineInputBorder(),
                 label: Text("Devops Name"),
@@ -56,7 +56,7 @@ class AddUser extends StatelessWidget {
               decoration: const InputDecoration(
                   icon: Icon(
                     Icons.phone,
-                    color:black,
+                    color: black,
                   ),
                   border: OutlineInputBorder(),
                   label: Text("Phone Number")),
@@ -65,10 +65,10 @@ class AddUser extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: DropdownButtonFormField(
-                dropdownColor:blue,
+                dropdownColor: blue,
                 decoration: const InputDecoration(
                   label: Text(
-                    "Select Domain 🖱️",
+                    "Select Domain",
                     style: TextStyle(color: black),
                   ),
                 ),
@@ -76,7 +76,8 @@ class AddUser extends StatelessWidget {
                     .map((e) => DropdownMenuItem(
                           value: e,
                           child: Text(e,
-                              style: TextStyle(fontWeight: FontWeight.bold)),
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold, color: black)),
                         ))
                     .toList(),
                 onChanged: (val) {
@@ -98,14 +99,21 @@ class AddUser extends StatelessWidget {
 
                   Navigator.pop(context);
                 }
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  backgroundColor: Colors.green,
+                  content: Text(
+                    "Devops Added",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  duration: Duration(seconds: 3),
+                ));
               },
               style: const ButtonStyle(
                   minimumSize:
                       MaterialStatePropertyAll(Size(double.infinity, 50)),
-                  backgroundColor: MaterialStatePropertyAll(
-                     blue)),
+                  backgroundColor: MaterialStatePropertyAll(blue)),
               child: const Text(
-                "Submit 🖱️",
+                "Submit",
                 style: TextStyle(fontSize: 20),
               ),
             )

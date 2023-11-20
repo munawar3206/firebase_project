@@ -16,7 +16,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         routes: {
           '/s': (context) => const SplashScreen(),
-          '/': (context) => Homepage(),
+          '/': (context) =>const Homepage(),
           '/add': (context) => AddUser(),
           '/update': (context) => Update(),
         },

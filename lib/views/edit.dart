@@ -19,9 +19,9 @@ class Update extends StatelessWidget {
     techprovider.selectedGroup = args["domain"];
     final docId = args['id'];
     return Scaffold(
-      backgroundColor:white,
+      backgroundColor: white,
       appBar: AppBar(
-        backgroundColor:blue,
+        backgroundColor: blue,
         title: const Text("Edit 📝"),
         centerTitle: true,
         elevation: 10,
@@ -52,7 +52,7 @@ class Update extends StatelessWidget {
               decoration: const InputDecoration(
                   icon: Icon(
                     Icons.class_,
-                    color:black,
+                    color: black,
                   ),
                   border: OutlineInputBorder(),
                   label: Text("Batch")),
@@ -75,16 +75,16 @@ class Update extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: DropdownButtonFormField(
-                dropdownColor:blue,
+                dropdownColor: blue,
                 decoration: const InputDecoration(
-                    label: Text("Select Domain 🖱️"),
-                    labelStyle: TextStyle(color:black)),
+                    label: Text("Select Domain"),
+                    labelStyle: TextStyle(color: black)),
                 items: domains
                     .map((e) => DropdownMenuItem(
                           value: e,
                           child: Text(
                             e,
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ))
                     .toList(),
@@ -102,13 +102,20 @@ class Update extends StatelessWidget {
                 if (formkey.currentState!.validate()) {
                   Navigator.pop(context);
                   techprovider.updatetechname(docId);
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    backgroundColor: blue,
+                    content: Text(
+                      "Updated ✅",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    duration: Duration(seconds: 3),
+                  ));
                 }
               },
               style: const ButtonStyle(
                   minimumSize:
                       MaterialStatePropertyAll(Size(double.infinity, 50)),
-                  backgroundColor: MaterialStatePropertyAll(
-                     blue)),
+                  backgroundColor: MaterialStatePropertyAll(blue)),
               child: const Text(
                 "Update ☑️",
                 style: TextStyle(fontSize: 20),
