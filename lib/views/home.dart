@@ -23,7 +23,7 @@ class Homepage extends StatelessWidget {
       body: Consumer<technameProvider>(
         builder: (context, provider, child) {
           if (provider.technames.isEmpty) {
-            provider.fetchtechname();
+            // provider.fetchtechname();
             return Center(
               child: Lottie.asset("asset/Animation - 1700211173728.json",
                   height: 250, width: 250),
@@ -34,7 +34,7 @@ class Homepage extends StatelessWidget {
             itemBuilder: (context, index) {
               final TechModel namesSnap = provider.technames[index];
               return Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Container(
                   height: 80,
                   decoration: BoxDecoration(

@@ -1,7 +1,7 @@
 import 'package:firebase/controller/internet_connectivity_provider.dart';
 import 'package:firebase/controller/techname_provider.dart';
 import 'package:firebase/firebase_options.dart';
-import 'package:firebase/splash.dart';
+import 'package:firebase/views/splash.dart';
 import 'package:firebase/views/add.dart';
 import 'package:firebase/views/edit.dart';
 import 'package:firebase/views/home.dart';
