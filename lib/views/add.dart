@@ -92,7 +92,12 @@ class AddUser extends StatelessWidget {
                       style: TextStyle(color: blue),
                     ),
                   ),
-                
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Choose Domain";
+                    }
+                    return null;
+                  },
                   items: domains
                       .map((e) => DropdownMenuItem(
                             value: e,
